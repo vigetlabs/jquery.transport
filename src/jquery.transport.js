@@ -1,3 +1,9 @@
+/**
+ * @name jQuery.Transport
+ * @desc Move elements to other containers with matching media queries.
+ * @author Nate Hunzaker, Viget Labs
+ */
+
 (function($) {
   
 	var $window = $(window);

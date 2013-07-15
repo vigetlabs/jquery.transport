@@ -10,7 +10,7 @@ jQuery.Tube looks for the following pattern in a `data-transport` attribute
 of an html element:
 
 ```
-[media query]![selector]|[media-query]![selector]
+<element data-transport="[media query]![selector]|[media-query]![selector]...(and so on)"></element>
 ```
 
 You can alias media queries by passing an object into the plugin
