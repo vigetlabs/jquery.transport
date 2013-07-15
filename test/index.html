@@ -3,16 +3,19 @@
 <head>
 	<meta charset="utf-8">
 	<title>jQuery.Tube</title>
+	<link rel="stylesheet" href="style.css"/>
 </head>
 <body>
 	<h1>Reduce the size of me and watch the hotness</h1>
+
 	<hr>
+
 	<main>
 		<h2>This is the main element</h2>
 
 		<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.</p>
 
-		<span class="portal-target" id="main-header-portal"></span>
+		<span class="portal-target" id="header-portal"></span>
 
 		<p>Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.</p>
 		<p>Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue.</p>
@@ -21,18 +24,29 @@
 
 		<p>Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem.</p>
 
-		<span class="portal-target" id="main-footer-portal"></span>
+		<span class="portal-target" id="footer-portal"></span>
 
 		<span class="portal-target" id="dump"></span>
 	</main>
+
 	<aside>
 		<h3>This is the aside element</h3>
-		<span id="sidebar-portal">
-			<img data-tube="tablet!#main-header-portal|mobile!#dump" src="http://lorempixel.com/300/250/sports/2" />
-			<img data-tube="tablet!#main-portal|mobile!#dump" src="http://lorempixel.com/300/250/sports/1" />
-			<img data-tube="tablet!#main-portal|mobile!#dump" src="http://lorempixel.com/300/250/sports/3" />
-			<img data-tube="tablet!#main-footer-portal|mobile!#dump" src="http://lorempixel.com/300/250/sports/4" />
+		<span id="sidebar">
+			<img id="image1" data-tube="tablet!#header-portal|mobile!#dump" src="images/1.jpg" />
+			<img id="image2" data-tube="tablet!#main-portal|mobile!#dump" src="images/2.jpg" />
+			<img id="image3" data-tube="tablet!#main-portal|mobile!#dump" src="images/3.jpg" />
+			<img id="image4" data-tube="tablet!#footer-portal|mobile!#dump" src="images/4.jpg" />
 		</span>
 	</aside>
+
+	<script src="lib/jquery.js"></script>
+	<script src="../src/jquery.tube.js"></script>
+	<script>
+		// Set some aliases for testing
+		$("[data-tube]").tube({
+			tablet: "screen and (max-width: 1023px)",
+			mobile: "screen and (max-width: 600px)"
+		});
+	</script>
 </body>
 </html>
