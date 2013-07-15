@@ -6,7 +6,7 @@ Move elements to other containers based upon media queries.
 
 ## Usage
 
-jQuery.Tube looks for the following pattern in a `data-tube` attribute
+jQuery.Tube looks for the following pattern in a `data-transport` attribute
 of an html element:
 
 ```
