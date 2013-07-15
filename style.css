@@ -1,0 +1,44 @@
+body {
+    color: #333;
+    font: normal 100%/1.5 sans-serif;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+h1,h2,h3 {
+    color: #111;
+}
+
+main {
+    float: left;
+    width: 70%;    
+}
+
+aside {
+    float: right;
+    width: 30%;
+}
+
+img {
+    display: inline-block;
+    max-width: 100%;
+}
+
+.portal-target {
+    border: 1px dashed #aaa;
+    display: block;
+    margin: 15px 0;
+    padding: 15px;
+    text-align: center;
+    width: 100%;
+}
+
+#dump img {
+    max-width: 25%;
+}
+
+@media screen and (max-width: 1023px) {
+    main  { width: 95%;   }
+    aside { display: none; }
+}
