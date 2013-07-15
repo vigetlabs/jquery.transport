@@ -37,36 +37,36 @@
 	}( document ));
 
   
-	var Tube = function(el, aliases) {
+	var Transport = function(el, aliases) {
 		this.$el = $(el);
     
 		this.home = this.$el.parent();
-		this.aliases = $.extend({}, Tube.aliases, aliases);
+		this.aliases = $.extend({}, Transport.aliases, aliases);
 		this.queries = this.getQueries();
 
 		this.check();
     
-		$window.on("resize:tube", $.proxy(this.check, this));
+		$window.on("resize:transport", $.proxy(this.check, this));
 	};
   
 	// Aliases allow for cleaner markup, for example:
-	// <img src="..." data-tube="tablet!#tube-id" />
-	Tube.aliases = {};
+	// <img src="..." data-transport="tablet!#container-id" />
+	Transport.aliases = {};
   
-	Tube.prototype = {
+	Transport.prototype = {
 
-		pipe: function(destination) {
+		ship: function(destination) {
 			var $destination = $(destination);
 
 			// Send a warning if the tub selected doesn't match, this will
 			// happen if the selector picked doesn't exist
 			if ($destination.length === 0) {
-				console.warn("Tube was not found:", destination);
+				console.warn("Transport location was not found:", destination);
 			}
 
 			if (!$destination.has(this.$el).length) {
 				this.$el.appendTo(destination);
-				this.$el.trigger("tube", $destination);
+				this.$el.trigger("transport", $destination);
 			}
 		},
 
@@ -81,11 +81,11 @@
 				}        
 			}
 
-			this.pipe(destination);
+			this.ship(destination);
 		},
 
 		getQueries: function() {
-			var rules = this.$el.data("tube") || "";
+			var rules = this.$el.data("transport") || "";
 			var aliases = this.aliases;
 
 			return $.map(rules.split("|"), function(rule) {
@@ -103,18 +103,18 @@
 
 	// Scroll spy
 	$window.on("resize", function() {
-		clearTimeout(Tube.timeout);
+		clearTimeout(Transport.timeout);
     
-		Tube.timeout = setTimeout(function() {
-			$window.trigger("resize:tube");
+		Transport.timeout = setTimeout(function() {
+			$window.trigger("resize:transport");
 		}, 250);
 	});
 
   
 	// Boot
-	$.fn.tube = function(aliases) {
+	$.fn.transport = function(aliases) {
 		this.each(function() {
-			return $(this).data("pluginTube", new Tube(this, aliases));
+			return $(this).data("pluginTransport", new Transport(this, aliases));
 		});
 	};
   
