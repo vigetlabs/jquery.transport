@@ -41,5 +41,12 @@
 
 	<script src="lib/jquery.js"></script>
 	<script src="../src/jquery.tube.js"></script>
+	<script>
+		// Set some aliases for testing
+		$("[data-tube]").tube({
+			tablet: "screen and (max-width: 1023px)",
+			mobile: "screen and (max-width: 600px)"
+		});
+	</script>
 </body>
 </html>

@@ -37,12 +37,13 @@
 	}( document ));
 
   
-	var Tube = function(el) {
+	var Tube = function(el, aliases) {
 		this.$el = $(el);
     
 		this.home = this.$el.parent();
+		this.aliases = $.extend({}, Tube.aliases, aliases);
 		this.queries = this.getQueries();
-    
+
 		this.check();
     
 		$window.on("resize:tube", $.proxy(this.check, this));
@@ -50,13 +51,25 @@
   
 	// Aliases allow for cleaner markup, for example:
 	// <img src="..." data-tube="tablet!#tube-id" />
-	Tube.aliases = {
-		tablet: "screen and (max-width: 1023px)",
-		mobile: "screen and (max-width: 600px)"
-	};  
+	Tube.aliases = {};
   
 	Tube.prototype = {
-      
+
+		pipe: function(destination) {
+			var $destination = $(destination);
+
+			// Send a warning if the tub selected doesn't match, this will
+			// happen if the selector picked doesn't exist
+			if ($destination.length === 0) {
+				console.warn("Tube was not found:", destination);
+			}
+
+			if (!$destination.has(this.$el).length) {
+				this.$el.appendTo(destination);
+				this.$el.trigger("tube", $destination);
+			}
+		},
+
 		check: function() {
 			var destination = this.home;
 			var queries = this.queries;
@@ -68,24 +81,19 @@
 				}        
 			}
 
-			this.$el.appendTo(destination);
-
-			// Send a warning if the tub selected doesn't match, this will
-			// happen if the selector picked doesn't exist
-			if (this.$el.parent().is(destination) === false) {
-				console.warn("Tube was not found:", destination);
-			}
+			this.pipe(destination);
 		},
 
 		getQueries: function() {
-			var rules = this.$el.data("tube");
+			var rules = this.$el.data("tube") || "";
+			var aliases = this.aliases;
 
 			return $.map(rules.split("|"), function(rule) {
 				var parts = rule.split("!");
 				var query = parts[0];
 				var tube = parts[1];
 
-				query = Tube.aliases[query] || query;
+				query = aliases[query] || query;
 
 				return { rule: query, element: tube };
 			});
@@ -99,17 +107,15 @@
     
 		Tube.timeout = setTimeout(function() {
 			$window.trigger("resize:tube");
-		}, 250);    
+		}, 250);
 	});
 
   
 	// Boot
-	$.fn.tube = function() {
+	$.fn.tube = function(aliases) {
 		this.each(function() {
-			return $(this).data("tube", new Tube(this));
+			return $(this).data("pluginTube", new Tube(this, aliases));
 		});
 	};
-  
-	$("[data-tube]").tube();
   
 }(window.jQuery));
