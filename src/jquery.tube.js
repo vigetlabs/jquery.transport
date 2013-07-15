@@ -45,7 +45,7 @@
     
 		this.check();
     
-		$window.on("resize:tube", this.check.bind(this));
+		$window.on("resize:tube", $.proxy(this.check, this));
 	};
   
 	// Aliases allow for cleaner markup, for example:
@@ -65,7 +65,6 @@
 			for (var i = 0; i < len; i++) {      
 				if (matchMedia(queries[i].rule).matches) {
 					destination = queries[i].element;
-					break;
 				}        
 			}
 
