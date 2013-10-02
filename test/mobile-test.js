@@ -24,5 +24,13 @@ describe('Mobile View', './index.html', {
 		check.exists(page, "#dump #image4");
 	});
 
+	it ("places #child1content in the dumping ground", function(check) {
+		check.exists(page, "#dump #child1content");
+	});
+
+	it ("places #child2content in the dumping ground", function(check) {
+		check.exists(page, "#dump #child2content");
+	});
+
 	phantom.exit();
 });

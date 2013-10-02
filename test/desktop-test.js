@@ -24,5 +24,13 @@ describe('Desktop View', './index.html', {
 		check.exists(page, "#sidebar #image4");
 	});
 
+	it ("places #child1content in the sidebar", function(check) {
+		check.exists(page, "#sidebar #child1content");
+	});
+
+	it ("places #child2content in the sidebar", function(check) {
+		check.exists(page, "#sidebar #child2content");
+	});
+
 	phantom.exit();
 });
