@@ -48,12 +48,12 @@
 
 		// defaults for a single element
 		this.$contents = this.$el;
-		this.$destination = this.$el.parent();
+		this.$home = this.$el.parent();
 
 		// or transport the contents of this element
 		if (this.$el.children().length) {
 			this.$contents = this.$el.children();
-			this.$destination = this.$el;
+			this.$home = this.$el;
 		}
 		this.aliases = $.extend({}, Transport.aliases, aliases);
 		this.queries = this.getQueries();
@@ -85,7 +85,7 @@
 		},
 
 		check: function() {
-			var destination = this.$destination;
+			var destination = this.$home;
 			var queries = this.queries;
 			var len = queries.length;
 
