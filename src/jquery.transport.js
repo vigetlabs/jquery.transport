@@ -5,7 +5,7 @@
  */
 
 (function($) {
-  
+
 	var $window = $(window);
 
 	/*! matchMedia() polyfill - Test a CSS media type/query in JS. Authors & copyright (c) 2012: Scott Jehl, Paul Irish, Nicholas Zakas. Dual MIT/BSD license */
@@ -42,23 +42,23 @@
 
 	}( document ));
 
-  
+
 	var Transport = function(el, aliases) {
 		this.$el = $(el);
-    
+
 		this.home = this.$el.parent();
 		this.aliases = $.extend({}, Transport.aliases, aliases);
 		this.queries = this.getQueries();
 
 		this.check();
-    
+
 		$window.on("resize:transport", $.proxy(this.check, this));
 	};
-  
+
 	// Aliases allow for cleaner markup, for example:
 	// <img src="..." data-transport="tablet!#container-id" />
 	Transport.aliases = {};
-  
+
 	Transport.prototype = {
 
 		ship: function(destination) {
@@ -81,10 +81,10 @@
 			var queries = this.queries;
 			var len = queries.length;
 
-			for (var i = 0; i < len; i++) {      
+			for (var i = 0; i < len; i++) {
 				if (matchMedia(queries[i].rule).matches) {
 					destination = queries[i].element;
-				}        
+				}
 			}
 
 			this.ship(destination);
@@ -110,18 +110,18 @@
 	// Scroll spy
 	$window.on("resize", function() {
 		clearTimeout(Transport.timeout);
-    
+
 		Transport.timeout = setTimeout(function() {
 			$window.trigger("resize:transport");
 		}, 250);
 	});
 
-  
+
 	// Boot
 	$.fn.transport = function(aliases) {
 		this.each(function() {
 			return $(this).data("pluginTransport", new Transport(this, aliases));
 		});
 	};
-  
+
 }(window.jQuery));
