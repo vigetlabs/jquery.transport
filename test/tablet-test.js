@@ -24,12 +24,12 @@ describe('Tablet View', './index.html', {
 		check.exists(page, "#footer-portal #image4");
 	});
 
-	it ("places #child1content in the sidebar", function(check) {
-		check.exists(page, "#footer-portal #child1content");
+	it ("places #wrapper1content in the sidebar", function(check) {
+		check.exists(page, "#footer-portal #wrapper1content");
 	});
 
-	it ("places #child2content in the sidebar", function(check) {
-		check.exists(page, "#footer-portal #child2content");
+	it ("places #wrapper2content in the sidebar", function(check) {
+		check.exists(page, "#footer-portal #wrapper2content");
 	});
 
 	phantom.exit();
