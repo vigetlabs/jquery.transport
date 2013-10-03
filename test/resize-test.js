@@ -28,6 +28,24 @@ describe('Resize Test', './index.html', {
 			check.exists(page, "#sidebar #image4");
 		});
 
+		it ("places #wrapper1content in the sidebar", function(check) {
+			check.exists(page, "#sidebar #wrapper1content");
+		});
+
+		it ("places #wrapper2content in the sidebar", function(check) {
+			check.exists(page, "#sidebar #wrapper2content");
+		});
+
+		it ("places #wrapper1content before #wrapper2content in the sidebar", function(check) {
+			var firstID = page.evaluate(function() {
+				return document.querySelectorAll("#sidebar .wrapper-content")[0].id;
+			});
+			var expectedID = "wrapper1content";
+			if (firstID !== expectedID) {
+				throw Error("Found " + firstID + ". Expected " + expectedID + ".");
+			}
+		});
+
 		phantom.exit();
 
 	}, 500);

@@ -24,5 +24,13 @@ describe('Tablet View', './index.html', {
 		check.exists(page, "#footer-portal #image4");
 	});
 
+	it ("places #wrapper1content in the sidebar", function(check) {
+		check.exists(page, "#footer-portal #wrapper1content");
+	});
+
+	it ("places #wrapper2content in the sidebar", function(check) {
+		check.exists(page, "#footer-portal #wrapper2content");
+	});
+
 	phantom.exit();
 });

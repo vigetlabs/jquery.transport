@@ -31,7 +31,7 @@
 
 			docElem.insertBefore( fakeBody, refNode );
 			bool = div.offsetWidth === 42;
-			docElem.removeChild( fakeBody );
+			fakeBody.parentNode.removeChild( fakeBody );
 
 			return {
 				matches: bool,
@@ -46,7 +46,15 @@
 	var Transport = function(el, aliases) {
 		this.$el = $(el);
 
-		this.home = this.$el.parent();
+		// defaults for a single element
+		this.$contents = this.$el;
+		this.$home = this.$el.parent();
+
+		// or transport the contents of this element
+		if (this.$el.children().length) {
+			this.$contents = this.$el.children();
+			this.$home = this.$el;
+		}
 		this.aliases = $.extend({}, Transport.aliases, aliases);
 		this.queries = this.getQueries();
 
@@ -71,13 +79,13 @@
 			}
 
 			if (!$destination.has(this.$el).length) {
-				this.$el.appendTo(destination);
+				this.$contents.appendTo(destination);
 				this.$el.trigger("transport", $destination);
 			}
 		},
 
 		check: function() {
-			var destination = this.home;
+			var destination = this.$home;
 			var queries = this.queries;
 			var len = queries.length;
 
