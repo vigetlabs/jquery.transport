@@ -1,15 +1,15 @@
 {
-  "name": "jQuery.Tube",
+  "name": "jQuery.Transport",
   "version": "0.0.0",
   "description": "Teleport elements based upon media queries.",
-  "main": "jquery.tube.js",
+  "main": "jquery.transport.js",
   "directories": {
     "test": "test"
   },
   "scripts": {
     "test": "cd test; for f in ./*-test.js; do phantomjs \"$f\"; done; cd ..;"
   },
-  "repository": "https://github.com/vigetlabs/jquery.tube",
+  "repository": "https://github.com/vigetlabs/jquery.transport",
   "keywords": [
     "jquery"
   ],
