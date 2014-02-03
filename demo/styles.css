@@ -1,0 +1,47 @@
+body {
+	font-family: 'Arial', sans-serif;
+	margin: 20px;
+}
+
+body > * {
+	margin: 10px 0;
+}
+
+[data-transport] {
+	border: 5px dashed #ccc;
+	margin: 20px 0;
+	min-height: 75px;
+}
+
+.for-styles-only {
+	background: #fffddd;
+	padding: 10px;
+}
+
+.for-styles-only h3 {
+	margin: 5px 0 10px;
+}
+
+#header {
+	border-bottom: 2px solid #e5e5e5;
+}
+
+#footer {
+	border-top: 2px solid #e5e5e5;
+}
+
+@media (min-width: 501px) {
+	#main {
+		float: left;
+		width: 65%;
+	}
+
+	#sidebar {
+		float: right;
+		width: 30%;
+	}
+
+	#footer {
+		clear: both;
+	}
+}

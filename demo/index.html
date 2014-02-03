@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+	<head>
+		<title>jQuery Transport Demo</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="styles.css">
+	</head>
+	<body>
+		<header id="header">
+			<p>
+				jQuery Transport is a <em>tiny</em> jQuery plugin for moving elements between containers.
+				<a href="https://github.com/vigetlabs/jquery.transport">https://github.com/vigetlabs/jquery.transport</a>
+			</p>
+		</header>
+
+		<main id="main">
+			<h2>Main</h2>
+			<p>
+				Expedita, facilis, obcaecati, rerum doloribus excepturi iste sequi quo consequuntur
+				optio nihil provident.
+			</p>
+			<p>
+				Vel, quod, hic, sapiente ab possimus vero delectus soluta recusandae optio aut odio
+				assumenda harum reiciendis beatae error id natus debitis quo.
+			</p>
+		</main>
+
+		<aside id="sidebar">
+			<h2>Content that can transport</h2>
+
+			<div data-transport="tablet!#main|mobile!#footer">
+				<div class="for-styles-only">
+					<h3>Cats</h3>
+					<img src="http://placekitten.com/100/75">
+				</div>
+			</div>
+
+			<div data-transport="tablet!#main|mobile!#footer">
+				<div class="for-styles-only">
+					<h3>Dogs</h3>
+					<img src="http://placedog.com/100/75">
+				</div>
+			</div>
+
+			<h2>Other content that stays put</h2>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+		</aside>
+
+		<footer id="footer">
+			<h2>Footer</h2>
+			<p>
+				Eum, atque, ea voluptatum harum voluptatem iusto aspernatur explicabo et quae nemo neque esse
+				officiis labore voluptate beatae nulla quo fuga id!
+			</p>
+		</footer>
+
+		<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+		<script src="../src/jquery.transport.js"></script>
+		<script>
+			$(document).ready(function() {
+				$('[data-transport').transport({
+					mobile: 'screen and (max-width: 500px)',
+					tablet: 'screen and (max-width: 1024px)'
+				});
+			});
+		</script>
+	</body>
+</html>
