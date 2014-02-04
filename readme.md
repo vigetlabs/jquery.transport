@@ -45,6 +45,10 @@ With the matching html:
 </aside>
 ```
 
+### Demo
+
+View this repo's [demo page](http://vigetlabs.github.io/jquery.transport/demo/).
+
 ## Setup development and run tests
 
 ```bash
