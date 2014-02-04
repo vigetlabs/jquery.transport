@@ -12,7 +12,7 @@ jQuery.Transport looks for the following pattern in a `data-transport` attribute
 of an html element:
 
 ```
-<element data-transport="[media query]![selector]|[media-query]![selector]...(and so on)"></element>
+<div data-transport="[media query key]![selector]|[media query key]![selector]...(and so on)"></div>
 ```
 
 ### Example
