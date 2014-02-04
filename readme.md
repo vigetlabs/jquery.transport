@@ -11,7 +11,7 @@ Uses [matchMedia](http://caniuse.com/#feat=matchmedia), if supported, or [Paul I
 jQuery.Transport looks for the following pattern in a `data-transport` attribute
 of an html element:
 
-```
+```html
 <div data-transport="[media query key]![selector]|[media query key]![selector]...(and so on)"></div>
 ```
 
