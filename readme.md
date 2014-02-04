@@ -21,10 +21,10 @@ You can alias media queries by passing an object into the plugin
 creation method:
 
 ```javascript
-$(".element").transport({
-	mobile: "screen and (max-width: 500px)"
-	tablet: "screen and (max-width: 1024px)"
-})
+$('[data-transport]').transport({
+	mobile: '(max-width: 500px)'
+	tablet: '(max-width: 1024px)'
+});
 ```
 
 With the matching html:
@@ -35,8 +35,7 @@ With the matching html:
 <aside id="sidebar">
 
 	<!-- The Important Stuff -->
-	<div class="element" data-transport="tablet!#main|mobile!#footer">
-		<h2>Content to transport</h2>
+	<div data-transport="tablet!#main|mobile!#footer">
 		<p>
 			Breakdown: at tablet, screen and (max-width: 1024px), this is transported to $("#main").
 			At mobile, screen and (max-width: 500px), this is transported to $("#footer").
