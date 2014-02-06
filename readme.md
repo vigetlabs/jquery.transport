@@ -6,6 +6,12 @@ Uses [matchMedia](http://caniuse.com/#feat=matchmedia), if supported, or [Paul I
 
 ![Screenshot](http://f.cl.ly/items/1J1s3S0P1D3b2w0W0J2K/sample.png)
 
+## Downloads
+
+* Development: [jquery.transport.js](https://raw2.github.com/vigetlabs/jquery.transport/master/src/jquery.transport.js)
+
+* Production: [jquery.transport.min.js](https://raw2.github.com/vigetlabs/jquery.transport/master/build/jquery.transport.min.js)
+
 ## Usage
 
 jQuery.Transport looks for the following pattern in a `data-transport` attribute
