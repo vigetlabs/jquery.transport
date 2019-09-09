@@ -6,6 +6,10 @@ Uses [matchMedia](http://caniuse.com/#feat=matchmedia), if supported, or [Paul I
 
 ![Screenshot](http://f.cl.ly/items/1J1s3S0P1D3b2w0W0J2K/sample.png)
 
+## Heads up!
+
+We are no longer actively using this on projects. Feel free to poke around, however this project may not be compliant with the latest version of jQuery.
+
 ## Downloads
 
 * Development: [jquery.transport.js](https://raw2.github.com/vigetlabs/jquery.transport/master/src/jquery.transport.js)
